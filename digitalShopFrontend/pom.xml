@@ -7,18 +7,21 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>digitalShopFrontend Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <build>
+        <finalName>digitalShopFrontend</finalName>
+  </build>
   <dependencies>
-        <dependency>
-        <groupId>com.first</groupId>
-        <artifactId>digitalShopBackend</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
+       <dependency>
+           <groupId>com.first</groupId>
+           <artifactId>digitalShopBackend</artifactId>
+           <version>0.0.1-SNAPSHOT</version>
+           </dependency>
+       <dependency>
            <groupId>junit</groupId>
            <artifactId>junit</artifactId>
            <version>3.8.1</version>
            <scope>test</scope>
-        </dependency>
+       </dependency>
  <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
        <dependency>
            <groupId>javax.servlet</groupId>
@@ -32,10 +35,19 @@
           <artifactId>spring-webmvc</artifactId>
           <version>4.3.20.RELEASE</version>
        </dependency>
-
+       <dependency>
+           <groupId>jstl</groupId>
+           <artifactId>jstl</artifactId>
+           <version>1.2</version>
+           <scope>compile</scope>
+       </dependency> 
+       <dependency>
+           <groupId>taglibs</groupId>
+           <artifactId>standard</artifactId>
+           <version>1.1.2</version>
+           <scope>compile</scope>
+       </dependency>
         
   </dependencies>
-  <build>
-    <finalName>digitalShopFrontend</finalName>
-  </build>
+  
 </project>

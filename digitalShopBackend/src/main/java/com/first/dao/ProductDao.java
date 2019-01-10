@@ -1,13 +1,16 @@
 package com.first.dao;
 
-import java.util.List;
+import java.util.List; 
 
 import com.first.entites.Product;
+import com.first.entites.Category;
 
 public interface ProductDao
 {
-	void addProduct(Product product);
 	Product getProduct(int id);
-	List<Product> getAllProducts();
 	void deleteProduct(int id);
+	List<Product> getAllProducts();
+	void saveOrUpdate(Product product);
+	List<Category> getAllCategories();
+	List<Product> getCategoryProducts(String category);
 }

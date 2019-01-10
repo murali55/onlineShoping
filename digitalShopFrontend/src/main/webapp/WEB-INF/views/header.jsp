@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,14 +52,26 @@
       <a class="navbar-brand" href="#">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      <ul class="nav navbar-nav" id="links">
+<li><a href="<c:url value='/home'></c:url>"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+<li><a href="<c:url value='/aboutus'></c:url>">About Us</a></li>
+<li><a href="<c:url value='/all/getallproducts'></c:url>">Browse all products</a></li>
+<li><a href="<c:url value='/admin/getproductform'></c:url>">Add Product</a></li>    
+<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select By Cateogory
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="">Furniture</a></li>
+			<li><a href="">Kitchen and Dining</a></li>
+			<li><a href="">Educational Books</a></li>
+			</ul>
+			</li>  </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        
+        <li><a href="<c:url value='/all/getregistrationform'></c:url>">Sign Up</a></li>
+<li><a href="<c:url value='/login'></c:url>"><span class="glyphicon glyphicon-log-in"></span>Sign In</a></li>
+<li><a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+<li><a href="<c:url value='/j_spring_security_logout'></c:url>"><span class="glyphicon glyphicon-log-out"></span>Sign Out</a></li>
       </ul>
     </div>
   </div>

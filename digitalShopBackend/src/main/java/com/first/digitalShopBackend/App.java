@@ -1,12 +1,12 @@
 package com.first.digitalShopBackend;
 
-import java.util.List;
+import java.util.List; 
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.first.confuguration.DBConfiguration;
 import com.first.dao.ProductDao;
-import com.first.dao.ProductDaoImpl;
+import com.first.daoImpl.ProductDaoImpl;
 import com.first.entites.Product;
 
 /**
