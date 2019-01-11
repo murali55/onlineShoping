@@ -1,8 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+<%@page isELIgnored="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,8 +58,9 @@
 <li><a href="<c:url value='/home'></c:url>"><span class="glyphicon glyphicon-home"></span>Home</a></li>
 <li><a href="<c:url value='/aboutus'></c:url>">About Us</a></li>
 <li><a href="<c:url value='/all/getallproducts'></c:url>">Browse all products</a></li>
-<li><a href="<c:url value='/admin/getproductform'></c:url>">Add Product</a></li>    
-<li class="dropdown">
+<security:authorize access="hasRole('ROLE_ADMIN')">
+<li><a href="<c:url value='/admin/getproductform'></c:url>">Add Product</a></li>
+</security:authorize><li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select By Cateogory
 			<span class="caret"></span></a>
 			<ul class="dropdown-menu">
@@ -65,13 +68,16 @@
 			<li><a href="">Kitchen and Dining</a></li>
 			<li><a href="">Educational Books</a></li>
 			</ul>
-			</li>  </ul>
-      <ul class="nav navbar-nav navbar-right">
-        
-        <li><a href="<c:url value='/all/getregistrationform'></c:url>">Sign Up</a></li>
+			</li> 
+<c:if test="${pageContext.request.userPrincipal.name==null }">			
+<li><a href="<c:url value='/all/getregistrationform'></c:url>">Sign Up</a></li>
 <li><a href="<c:url value='/login'></c:url>"><span class="glyphicon glyphicon-log-in"></span>Sign In</a></li>
+</c:if>
+<c:if test="${pageContext.request.userPrincipal.name!=null }">
 <li><a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
 <li><a href="<c:url value='/j_spring_security_logout'></c:url>"><span class="glyphicon glyphicon-log-out"></span>Sign Out</a></li>
+<li><a href="">Welcome ${pageContext.request.userPrincipal.name }</a></li>
+</c:if>
       </ul>
     </div>
   </div>

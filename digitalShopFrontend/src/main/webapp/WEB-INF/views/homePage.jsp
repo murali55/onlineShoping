@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ include file="header.jsp" %>
+pageEncoding="ISO-8859-1"%>
+<%@include file="header.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +59,7 @@
       </div>
 
       <div class="item">
-        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
+        <img src="resources/images/img1.jpg" style="width:100%" "height=50%" alt="Image">
         <div class="carousel-caption">
           <h3>More Sell $</h3>
           <p>Lorem ipsum...</p>
@@ -82,11 +82,11 @@
   <h3>What We Do</h3><br>
   <div class="row">
     <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <img src="resources/images/img2.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Current Project</p>
     </div>
     <div class="col-sm-4"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <img src="resources/images/img1.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Project 2</p>    
     </div>
     <div class="col-sm-4">

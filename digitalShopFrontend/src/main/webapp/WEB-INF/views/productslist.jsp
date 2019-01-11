@@ -21,6 +21,7 @@ p=product object from the list
 		<thead>
 			<tr>
 			    <th>Product Id</th>
+			    <th>Image</th>
 				<th>Product Name</th>
 				<th>Price</th>
 				<th>Action</th>
@@ -30,17 +31,23 @@ p=product object from the list
 		<c:forEach items="${products }" var="p">
         <tr>
         <td>${p.id }</td>
+        <td><img src="<c:url value='/resources/images/${p.id}.png'></c:url>" height="80px" width="80px"></td>
         <td>${p.productname }</td>
         <td>${p.price }</td>
         <td>
         <a href="<c:url value='/all/getproduct?id=${p.id }'></c:url>"><span class="glyphicon glyphicon-info-sign"></span></a>
+        <security:authorize access="hasRole('ROLE_ADMIN')">
         <a href="<c:url value='/admin/deleteproduct/${p.id }'></c:url>"><span class="glyphicon glyphicon-trash"></span></a>
-        
+        <a href="<c:url value='/admin/getupdateform?id=${p.id }'></c:url>"><span class="glyphicon glyphicon-pencil"></span></a>
+        </security:authorize>
         </td>
+        
         </tr>
+        
 		</c:forEach>
 		</tbody>
 	</table>
+	
 	</div>
 </body>
 </html>
