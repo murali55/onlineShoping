@@ -10,11 +10,13 @@ import com.first.dao.CustomerDao;
 import com.first.entites.Customer;
 
 @Controller
-public class CustomerController {
+public class CustomerController 
+{
 	@Autowired
 private CustomerDao customerDao;
 @RequestMapping(value="/all/getregistrationform")	
-public String getRegistrationForm(Model model){
+public String getRegistrationForm(Model model)
+{
 	Customer customer=new Customer();
 	model.addAttribute("customer",customer);//This model attribute customer will be used in registrationform.jsp
 	return "registrationForm";
@@ -22,7 +24,8 @@ public String getRegistrationForm(Model model){
 	
 }
 @RequestMapping(value="/all/register")
-public String registerCustomer(@ModelAttribute Customer customer, Model model){
+public String registerCustomer(@ModelAttribute Customer customer, Model model)
+{
 	System.out.println(customer.getFirstname());
 	System.out.println(customer.getLastname());
 	System.out.println(customer.getPhonenumber());

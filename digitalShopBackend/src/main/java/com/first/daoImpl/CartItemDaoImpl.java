@@ -18,7 +18,7 @@ import com.first.entites.User;
 @Transactional
 public class CartItemDaoImpl implements CartItemDao 
 {
-	@Autowired
+@Autowired
 private SessionFactory sessionFactory;
 	public void addToCart(CartItem cartItem) 
 	{

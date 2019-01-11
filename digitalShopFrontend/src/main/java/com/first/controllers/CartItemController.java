@@ -98,7 +98,8 @@ public String getShippingAddressForm(@AuthenticationPrincipal Principal principa
 @RequestMapping(value="/cart/createorder")
 public String createCustomerOrder(@ModelAttribute ShippingAddress shippingAddress,
 		Model model,
-		@AuthenticationPrincipal Principal principal,HttpSession session){
+		@AuthenticationPrincipal Principal principal,HttpSession session)
+{
 	//set updated shippingaddress in customer object 
 	
 	String email=principal.getName();
@@ -115,7 +116,8 @@ public String createCustomerOrder(@ModelAttribute ShippingAddress shippingAddres
 	
 	List<CartItem> cartItems=cartItemDao.getCartItems(email);
 	double grandTotal=0.0;
-	for(CartItem cartItem:cartItems){
+	for(CartItem cartItem:cartItems)
+	{
 		grandTotal=cartItem.getTotalPrice()+grandTotal;
 	}
 	customerOrder.setGrandTotal(grandTotal);
@@ -126,7 +128,8 @@ public String createCustomerOrder(@ModelAttribute ShippingAddress shippingAddres
 	//delete all cartitem's from cartitem table for this login id
 	//update the product quantity 
 	
-	for(CartItem cartItem:cartItems){
+	for(CartItem cartItem:cartItems)
+	{
 		Product product=cartItem.getProduct();
 		product.setQuantity(product.getQuantity() - cartItem.getQuantity());
 		productDao.saveOrUpdate(product);

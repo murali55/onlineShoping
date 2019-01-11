@@ -26,7 +26,8 @@ public void setCartItemId(int cartItemId)
 {
 	this.cartItemId = cartItemId;
 }
-public int getQuantity() {
+public int getQuantity() 
+{
 	return quantity;
 }
 public void setQuantity(int quantity) 
