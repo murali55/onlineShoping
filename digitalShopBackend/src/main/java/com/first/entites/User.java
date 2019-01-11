@@ -11,7 +11,7 @@ public class User {
 private String email;
 private String password;
 private boolean enabled;
-@OneToOne(mappedBy="user")
+@OneToOne(mappedBy="user",cascade=CascadeType.ALL)
 private Customer customer;
 @OneToOne(mappedBy="user",cascade=CascadeType.ALL)
 private Authorities authorities;
