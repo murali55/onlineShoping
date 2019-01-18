@@ -44,21 +44,25 @@ pageEncoding="ISO-8859-1"%>
 <li><a href="<c:url value='/all/getallproducts'></c:url>">Browse all products</a></li>
 <security:authorize access="hasRole('ROLE_ADMIN')">
 <li><a href="<c:url value='/admin/getproductform'></c:url>">Add Product</a></li>
-</security:authorize><li class="dropdown">
+</security:authorize>
+<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select By Cateogory
 			<span class="caret"></span></a>
 			<ul class="dropdown-menu">
-			<li><a href="">Furniture</a></li>
-			<li><a href="">Kitchen and Dining</a></li>
-			<li><a href="">Educational Books</a></li>
+			<c:forEach var="c" items="${categories }">
+			<li><a href="<c:url value='/all/searchbycategory?searchCondition=${c.categoryname }'></c:url>">${c.categoryname }</a></li>
+			</c:forEach>
+			<li><a href="<c:url value='/all/searchbycategory?searchCondition=All'></c:url>"">All</a></li>
 			</ul>
-			</li> 
+			</li>
 <c:if test="${pageContext.request.userPrincipal.name==null }">			
 <li><a href="<c:url value='/all/getregistrationform'></c:url>">Sign Up</a></li>
 <li><a href="<c:url value='/login'></c:url>"><span class="glyphicon glyphicon-log-in"></span>Sign In</a></li>
 </c:if>
 <c:if test="${pageContext.request.userPrincipal.name!=null }">
-<li><a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+<security:authorize access="hasRole('ROLE_USER')">
+<li><a href="<c:url value='/cart/getcartitems'></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+</security:authorize>
 <li><a href="<c:url value='/j_spring_security_logout'></c:url>"><span class="glyphicon glyphicon-log-out"></span>Sign Out</a></li>
 <li><a href="">Welcome ${pageContext.request.userPrincipal.name }</a></li>
 </c:if>
@@ -66,3 +70,5 @@ pageEncoding="ISO-8859-1"%>
     </div>
   </div>
 </nav>
+</body>
+</html>

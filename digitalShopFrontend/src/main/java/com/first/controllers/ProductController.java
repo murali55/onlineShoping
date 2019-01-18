@@ -138,4 +138,15 @@ private ProductDao productDao;//automatically wire a bean of type ProductDao (Pr
 		return "redirect:/all/getallproducts";
 		
 	}
+	@RequestMapping("/all/searchbycategory")
+	public String searchByCategory(@RequestParam String searchCondition,Model model)
+	{
+		if(searchCondition.equals("All"))
+			model.addAttribute("searchCondition","");
+		else
+			model.addAttribute("searchCondition",searchCondition);
+		List<Product> products=productDao.getAllProducts();
+		model.addAttribute("products",products);
+		return "productslist";
+	}
 }

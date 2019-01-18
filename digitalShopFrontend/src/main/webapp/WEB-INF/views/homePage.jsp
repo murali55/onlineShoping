@@ -51,7 +51,7 @@ pageEncoding="ISO-8859-1"%>
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
+        <img src="resources/images/img3.jpg" alt="Image">
         <div class="carousel-caption">
           <h3>Sell $</h3>
           <p>Money Money.</p>

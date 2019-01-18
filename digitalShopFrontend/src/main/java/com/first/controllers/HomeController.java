@@ -12,13 +12,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.first.dao.CartItemDao;
+import com.first.dao.ProductDao;
 import com.first.entites.CartItem;
+import com.first.entites.Category;
 
 @Controller
 public class HomeController 
 {
 	@Autowired
  private CartItemDao cartItemDao;
+	@Autowired
+ private ProductDao productDao;
 	public HomeController(){
 		System.out.println("homeController bean is created..");
 	}
@@ -31,6 +35,8 @@ public class HomeController
     	session.setAttribute("cartSize",cartItems.size());
     	
     	}
+    	List<Category> categories=productDao.getAllCategories();
+    	session.setAttribute("categories", categories);
 		return "homePage";
 	}
     @RequestMapping("/aboutus")

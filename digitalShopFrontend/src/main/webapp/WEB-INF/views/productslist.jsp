@@ -6,6 +6,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(document).ready(function(){
+	var searchCondition='${searchCondition}'
+	$('.table').DataTable({
+		"lengthMenu":[[2,5,-1],[2,5,"All"]],
+	    "oSearch" : {
+		"sSearch" : searchCondition 
+		}
+	})
+})
+</script>
 </head>
 <body>
 	<%--  forEach is for iterating collection of objects
